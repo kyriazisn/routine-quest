@@ -80,20 +80,26 @@ JST2 = ic("RQ:Conn_Microswitch_2P", "J", left=[("1", "SW", "passive"), ("2", "GN
 
 
 def esp32_s3_wroom_1() -> SymbolDef:
-    """Official Espressif symbol (espressif/kicad-libraries, CC-BY-SA 4.0), embedded as-is."""
+    """
+    Pin data (number, name, electrical type, position) taken verbatim from the official Espressif
+    symbol (espressif/kicad-libraries, CC-BY-SA 4.0), re-serialised by our own writer: the upstream
+    file uses KiCad 10 syntax that kiutils mis-parses (`show_name`, lost `hide`), which made KiCad 9
+    reject the schematic.
+    """
     from kiutils.symbol import SymbolLib
 
     lib = SymbolLib.from_file(ESP_LIB)
     s = next(x for x in lib.symbols if x.entryName == "ESP32-S3-WROOM-1")
-    s.libraryNickname = "Espressif"
     pins = []
     for u in s.units:
         for p in u.pins:
-            pins.append(Pin(p.number, p.name, p.electricalType, p.position.X, p.position.Y, int(p.position.angle or 0),
-                            p.length))
-    raw = s.to_sexpr()
-    return SymbolDef("Espressif:ESP32-S3-WROOM-1", "U", pins, raw_sexpr=raw,
-                     ref_at=(0, 43.18), value_at=(0, -43.18))
+            name = p.name.split("/")[0] if p.name.startswith("GPIO") else p.name
+            pins.append(Pin(p.number, name, p.electricalType, p.position.X, p.position.Y,
+                            int(p.position.angle or 0), p.length))
+    hw = max(abs(p.x) for p in pins if p.angle in (0, 180)) - 2.54
+    hh = max(abs(p.y) for p in pins if p.angle in (90, 270)) - 2.54
+    return SymbolDef("Espressif:ESP32-S3-WROOM-1", "U", pins, [rect(-hw, hh, hw, -hh)],
+                     ref_at=(0, hh + 5.08), value_at=(0, -hh - 5.08), pin_name_offset=1.016)
 
 
 # --------------------------------------------------------------------------- footprints & BOM data
