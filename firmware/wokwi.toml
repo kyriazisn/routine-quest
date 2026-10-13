@@ -1,0 +1,6 @@
+# Wokwi simulator config (VS Code extension "Wokwi Simulator" or wokwi-cli).
+# Uses the simulation build (sdkconfig.wokwi), never the production build.
+[wokwi]
+version = 1
+firmware = 'build-wokwi/flasher_args.json'
+elf = 'build-wokwi/routine_quest.elf'

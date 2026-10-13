@@ -1,0 +1,33 @@
+# Wokwi CLI scenario: boot → time sync → quest window opens → press 1,2,3,4 → quest complete.
+# Works at any time of day with the simulation schedule:
+#   00:00–12:00 morning quest uses buttons 1-4 (all four are steps)
+#   12:00–24:00 evening quest uses 4,2,1 (button 3 is a SLEEP_PRESS)
+# Run: wokwi-cli --timeout 120000 --scenario test/wokwi/quest_smoke.test.yaml .
+name: Quest smoke test
+version: 1
+author: Routine Quest
+
+steps:
+  - wait-serial: 'ready: time synced'
+  - wait-serial: 'quest: WINDOW_OPEN'
+
+  - set-control: { part-id: btn1, control: pressed, value: 1 }
+  - delay: 150ms
+  - set-control: { part-id: btn1, control: pressed, value: 0 }
+  - wait-serial: 'quest: STEP_DONE'
+
+  - delay: 500ms
+  - set-control: { part-id: btn2, control: pressed, value: 1 }
+  - delay: 150ms
+  - set-control: { part-id: btn2, control: pressed, value: 0 }
+
+  - delay: 500ms
+  - set-control: { part-id: btn3, control: pressed, value: 1 }
+  - delay: 150ms
+  - set-control: { part-id: btn3, control: pressed, value: 0 }
+
+  - delay: 500ms
+  - set-control: { part-id: btn4, control: pressed, value: 1 }
+  - delay: 150ms
+  - set-control: { part-id: btn4, control: pressed, value: 0 }
+  - wait-serial: 'quest: QUEST_COMPLETE'

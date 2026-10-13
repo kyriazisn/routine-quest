@@ -1,0 +1,27 @@
+idf_component_register(
+    SRCS
+        "app_main.c"
+        "quest_engine.c"
+        "storage.c"
+        "buttons.c"
+        "feedback.c"
+        "net.c"
+        "cloud.c"
+        "ota.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        driver
+        nvs_flash
+        esp_event
+        esp_netif
+        esp_wifi
+        esp_timer
+        esp_http_client
+        esp_https_ota
+        esp_app_format
+        app_update
+        mbedtls
+        json
+        wifi_provisioning
+        led_strip
+)

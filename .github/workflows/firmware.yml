@@ -1,0 +1,68 @@
+name: firmware
+
+on:
+  pull_request:
+    paths:
+      - "firmware/**"
+      - ".github/workflows/firmware.yml"
+  push:
+    branches: [main]
+    paths:
+      - "firmware/**"
+
+permissions:
+  contents: read
+
+jobs:
+  host-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Quest engine unit tests (ASan/UBSan)
+        run: make -C firmware/test/host
+
+  build:
+    runs-on: ubuntu-24.04
+    needs: host-tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build (ESP-IDF v5.3.2, esp32s3)
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.3.2
+          target: esp32s3
+          path: firmware
+      - name: Size report
+        run: ls -l firmware/build/*.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: routine-quest-fw-${{ github.sha }}
+          path: |
+            firmware/build/routine_quest.bin
+            firmware/build/bootloader/bootloader.bin
+            firmware/build/partition_table/partition-table.bin
+          retention-days: 14
+
+  # Optional: runs only when repo variable WOKWI_ENABLED=true and secret WOKWI_CLI_TOKEN exist.
+  wokwi:
+    runs-on: ubuntu-24.04
+    needs: host-tests
+    if: vars.WOKWI_ENABLED == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build simulation firmware (CONFIG_RQ_SIM_MODE)
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.3.2
+          target: esp32s3
+          path: firmware
+          command: >-
+            idf.py -B build-wokwi -D SDKCONFIG=build-wokwi/sdkconfig
+            -D SDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.wokwi" build
+      - name: Run quest smoke scenario in Wokwi
+        uses: wokwi/wokwi-ci-action@v1
+        with:
+          token: ${{ secrets.WOKWI_CLI_TOKEN }}
+          path: firmware
+          timeout: 120000
+          scenario: test/wokwi/quest_smoke.test.yaml

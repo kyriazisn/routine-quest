@@ -1,0 +1,26 @@
+menu "Routine Quest"
+
+    config RQ_API_BASE_URL
+        string "Backend API base URL (HTTPS)"
+        default "https://api.routinequest.invalid"
+        help
+            Base URL of the Routine Quest backend, without trailing slash.
+            Must be HTTPS; TLS is verified with the ESP x509 certificate bundle.
+
+    config RQ_DEV_POP
+        string "Development proof-of-possession for BLE provisioning"
+        default "rq-dev-pop"
+        help
+            DEVELOPMENT ONLY. Production devices use a unique per-device PoP written to a
+            factory NVS partition and printed on the device label.
+
+    config RQ_SIM_MODE
+        bool "Simulation mode (Wokwi) — NEVER enable in production"
+        default n
+        help
+            For the Wokwi simulator (firmware/wokwi/). Skips BLE provisioning (Wokwi has no BLE),
+            joins the open simulated network "Wokwi-GUEST", loads a demo schedule that covers the
+            whole day, uses Europe/Athens time and does not contact the backend.
+            Events are logged to the console instead of being uploaded.
+
+endmenu
