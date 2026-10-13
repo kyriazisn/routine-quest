@@ -1,0 +1,10 @@
+# Wokwi simulator overlay — applied on top of sdkconfig.defaults.
+# Build:  idf.py -B build-wokwi -D SDKCONFIG=build-wokwi/sdkconfig \
+#           -D SDKCONFIG_DEFAULTS="sdkconfig.defaults;sdkconfig.wokwi" build
+# NEVER flash this build to a real device that ships to a family.
+
+CONFIG_RQ_SIM_MODE=y
+
+# Wokwi's serial monitor is wired to UART0
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+# CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG is not set

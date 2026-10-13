@@ -16,6 +16,9 @@ firmware/build/
 firmware/sdkconfig
 firmware/sdkconfig.old
 firmware/managed_components/
+firmware/build-*/
+firmware/dependencies.lock
+firmware/test/host/test_quest_engine
 
 # KiCad
 hardware/**/*-backups/

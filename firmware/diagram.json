@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Routine Quest",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led-ring", "id": "ring", "top": -240, "left": 260, "attrs": { "pixels": "12" } },
+    { "type": "wokwi-neopixel", "id": "px1", "top": 120, "left": 250, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "px2", "top": 120, "left": 330, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "px3", "top": 120, "left": 410, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "px4", "top": 120, "left": 490, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 170, "left": 230, "attrs": { "color": "red", "key": "1", "label": "1 🪥" } },
+    { "type": "wokwi-pushbutton", "id": "btn2", "top": 170, "left": 310, "attrs": { "color": "blue", "key": "2", "label": "2 👕" } },
+    { "type": "wokwi-pushbutton", "id": "btn3", "top": 170, "left": 390, "attrs": { "color": "green", "key": "3", "label": "3 🥣" } },
+    { "type": "wokwi-pushbutton", "id": "btn4", "top": 170, "left": 470, "attrs": { "color": "yellow", "key": "4", "label": "4 🎒" } },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 260, "left": 330, "attrs": { "volume": "0.2" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "esp:38", "ring:DIN", "green", [] ],
+    [ "ring:DOUT", "px1:DIN", "green", [] ],
+    [ "px1:DOUT", "px2:DIN", "green", [] ],
+    [ "px2:DOUT", "px3:DIN", "green", [] ],
+    [ "px3:DOUT", "px4:DIN", "green", [] ],
+    [ "esp:3V3.1", "ring:VCC", "red", [] ],
+    [ "esp:GND.1", "ring:GND", "black", [] ],
+    [ "esp:3V3.1", "px1:VDD", "red", [] ],
+    [ "esp:3V3.1", "px2:VDD", "red", [] ],
+    [ "esp:3V3.1", "px3:VDD", "red", [] ],
+    [ "esp:3V3.1", "px4:VDD", "red", [] ],
+    [ "esp:GND.1", "px1:VSS", "black", [] ],
+    [ "esp:GND.1", "px2:VSS", "black", [] ],
+    [ "esp:GND.1", "px3:VSS", "black", [] ],
+    [ "esp:GND.1", "px4:VSS", "black", [] ],
+
+    [ "esp:4", "btn1:1.l", "orange", [] ],
+    [ "esp:5", "btn2:1.l", "orange", [] ],
+    [ "esp:6", "btn3:1.l", "orange", [] ],
+    [ "esp:7", "btn4:1.l", "orange", [] ],
+    [ "esp:GND.1", "btn1:2.l", "black", [] ],
+    [ "esp:GND.1", "btn2:2.l", "black", [] ],
+    [ "esp:GND.1", "btn3:2.l", "black", [] ],
+    [ "esp:GND.1", "btn4:2.l", "black", [] ],
+
+    [ "esp:15", "bz1:2", "purple", [] ],
+    [ "esp:GND.1", "bz1:1", "black", [] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,27 @@
+CONFIG_IDF_TARGET="esp32s3"
+
+# Flash & partitions (ESP32-S3-WROOM-1-N8)
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# OTA rollback: new images boot PENDING_VERIFY until marked valid
+CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
+
+# 1 kHz tick so the 5 ms button poll is exact
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=6144
+
+# Console over native USB
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+
+# BLE provisioning (NimBLE, BLE only)
+CONFIG_BT_ENABLED=y
+CONFIG_BT_NIMBLE_ENABLED=y
+
+# TLS
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=y
+CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_CMN=y
+
+# Production hardening is configured in sdkconfig.defaults.prod (Phase 9):
+#   Secure Boot v2, flash encryption (release mode), NVS encryption, JTAG disabled.
