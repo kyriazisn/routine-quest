@@ -1,0 +1,40 @@
+# Local development only. Usage:
+#   cp .env.example .env && docker compose up --build
+#   API: http://localhost:8000/docs   — magic links are printed in the "api" logs (console mailer)
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: rq
+      POSTGRES_PASSWORD: rq-dev-only
+      POSTGRES_DB: routinequest
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rq -d routinequest"]
+      interval: 5s
+      retries: 10
+
+  migrate:
+    build: .
+    env_file: .env
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db: { condition: service_healthy }
+
+  api:
+    build: .
+    env_file: .env
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+  jobs:
+    build: .
+    env_file: .env
+    command: ["python", "-m", "app.cli", "run-jobs", "--loop", "60"]
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+volumes:
+  pgdata:
