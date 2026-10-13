@@ -3,7 +3,7 @@
   "author": "Routine Quest",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": { "flashSize": "8" } },
     { "type": "wokwi-led-ring", "id": "ring", "top": -240, "left": 260, "attrs": { "pixels": "12" } },
     { "type": "wokwi-neopixel", "id": "px1", "top": 120, "left": 250, "attrs": {} },
     { "type": "wokwi-neopixel", "id": "px2", "top": 120, "left": 330, "attrs": {} },
