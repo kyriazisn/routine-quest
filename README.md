@@ -23,9 +23,10 @@
 1. Product brief & user stories — `docs/01-product-brief.md`
 2. Game loop, XP, streaks, rewards — `docs/02-game-design.md`
 3. Wireframes (Figma)
-4. Firmware
-5. Backend & notifications
-6. Schematic → (έγκριση) → PCB
-7. Test plan
+4. Firmware — `firmware/`
+5. Backend & notifications — `docs/05-backend.md`
+6. Schematic → (έγκριση) → PCB — `docs/06-hardware.md`
+6.5. Parent PWA: υλοποίηση των wireframes, Web Push, BLE provisioning + claim (`app/`)
+7. Test plan (end-to-end: device + backend + PWA)
 8. Landing page & launch
 9. Risks, safety, privacy, parental controls
