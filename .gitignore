@@ -31,3 +31,9 @@ hardware/**/*.lck
 .DS_Store
 .vscode/
 .idea/
+
+# PWA tests
+app/test-results/
+app/playwright-report/
+app/e2e/.backend.log
+*.tsbuildinfo
