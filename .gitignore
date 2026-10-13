@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+
+# Node / PWA
+node_modules/
+dist/
+.vite/
+
+# ESP-IDF
+firmware/build/
+firmware/sdkconfig
+firmware/sdkconfig.old
+firmware/managed_components/
+
+# KiCad
+hardware/**/*-backups/
+hardware/**/*.kicad_prl
+hardware/**/fp-info-cache
+hardware/**/_autosave-*
+hardware/**/*.lck
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
