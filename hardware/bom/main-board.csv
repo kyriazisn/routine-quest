@@ -1,0 +1,43 @@
+Board,Qty,References,Value,Description,Manufacturer,MPN,Footprint
+main,1,BZ1,MLT-8530,"Magnetic buzzer, external drive, 2.7kHz 80dB, 8.5mm SMD (pin1 +)",Jiangsu Huaneng,MLT-8530,RQ:Buzzer_MLT-8530 (create in Phase 6b)
+main,1,C1,4.7nF,Capacitor 4.7nF X7R 50V 0603,,,Capacitor_SMD:C_0603_1608Metric
+main,1,C2,1nF,Capacitor 1nF X7R 25V 0603,,,Capacitor_SMD:C_0603_1608Metric
+main,2,C3 C11,1uF,Capacitor 1uF X7R 16V 0603,,,Capacitor_SMD:C_0603_1608Metric
+main,2,C4 C7,22uF,Capacitor 22uF X5R 10V 0805,,,Capacitor_SMD:C_0805_2012Metric
+main,1,C5,100uF,Capacitor 100uF X5R 6.3V 1210,,,Capacitor_SMD:C_1210_3225Metric
+main,2,C6 C9,10uF,Capacitor 10uF X5R 10V 0805,,,Capacitor_SMD:C_0805_2012Metric
+main,15,C8 C10 C16 C17 C18 C19 C20 C21 C22 C23 C24 C25 C26 C27 C28,100nF,Capacitor 100nF X7R 16V 0603,,,Capacitor_SMD:C_0603_1608Metric
+main,4,C12 C13 C14 C15,10nF,Capacitor 10nF X7R 16V 0603,,,Capacitor_SMD:C_0603_1608Metric
+main,1,D1,SMAJ5.0A,"TVS unidirectional 5V standoff, SMA (K = band → VBUS_F)",,SMAJ5.0A,Diode_SMD:D_SMA
+main,4,D2 D3 D4 D5,PESD5V0S1BA,"ESD bidirectional 5V, on external switch wire",Nexperia,"PESD5V0S1BA,115",Diode_SMD:D_SOD-323
+main,1,D6,1N4148W,Flyback across coil (K → BUZ_P),,1N4148W,Diode_SMD:D_SOD-123
+main,1,F1,0.75A hold,"PTC resettable fuse 0.75A hold / 1.5A trip, 1812 (verify)",Bourns,MF-MSMF075-2,Fuse:Fuse_1812_4532Metric
+main,1,J1,USB4105-GF-A,"USB-C receptacle USB 2.0, 16P, top mount (verify pad names in 6b)",GCT,USB4105-GF-A,Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal
+main,4,J2 J3 J4 J5,B6B-PH-K-S,"Button board connector (+5V, LED data in/out, switch)",JST,B6B-PH-K-S(LF)(SN),Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical
+main,12,LED1 LED2 LED3 LED4 LED5 LED6 LED7 LED8 LED9 LED10 LED11 LED12,WS2812B,"RGB LED, ring",Worldsemi,WS2812B-B/W,LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm
+main,1,Q1,2N7002,"N-MOSFET 60V 0.3A, logic level",,2N7002,Package_TO_SOT_SMD:SOT-23
+main,2,R1 R2,5.1k,Resistor 5.1k 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,1,R3,1M,Resistor 1M 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,7,R4 R5 R6 R11 R12 R13 R14,10k,Resistor 10k 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,4,R7 R8 R9 R10,1k,Resistor 1k 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,1,R15,47R,Resistor 47R 1% 1206,,,Resistor_SMD:R_1206_3216Metric
+main,1,R16,100R,Resistor 100R 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,2,R17 R18,100k,Resistor 100k 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,1,R19,330R,Resistor 330R 1% 0603,,,Resistor_SMD:R_0603_1608Metric
+main,1,SW1,RESET,"Tactile, inside enclosure only",E-Switch,TL3342F160QG,Button_Switch_SMD:SW_SPST_TL3342
+main,1,SW2,BOOT,"Tactile, inside enclosure only",E-Switch,TL3342F160QG,Button_Switch_SMD:SW_SPST_TL3342
+main,1,TP1,U0TXD,Test pad U0TXD (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP2,U0RXD,Test pad U0RXD (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP3,EN,Test pad EN (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP4,IO0,Test pad IO0 (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP5,+3V3,Test pad +3V3 (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP6,+5V,Test pad +5V (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP7,GND,Test pad GND (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP8,LED_CHAIN_END,Test pad LED_CHAIN_END (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP9,USB_DP,Test pad USB_DP (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,TP10,USB_DN,Test pad USB_DN (factory pogo),,,TestPoint:TestPoint_Pad_D1.5mm
+main,1,U1,ESP32-S3-WROOM-1-N8,"Wi-Fi/BLE module, 8MB flash, no PSRAM, PCB antenna (keep-out!)",Espressif,ESP32-S3-WROOM-1-N8,Espressif:ESP32-S3-WROOM-1
+main,1,U2,USBLC6-2SC6,USB 2.0 ESD protection D+/D-,STMicroelectronics,USBLC6-2SC6,Package_TO_SOT_SMD:SOT-23-6
+main,1,U3,TPS22918DBVR,"Load switch 5.5V 2A, slew control (inrush limit for USB)",Texas Instruments,TPS22918DBVR,Package_TO_SOT_SMD:SOT-23-6
+main,1,U4,AP7361C-33E-13,"LDO 3.3V 1A SOT-223, pinout IN-GND(tab)-OUT. NOT the -33ER variant (reversed)",Diodes Inc.,AP7361C-33E-13,Package_TO_SOT_SMD:SOT-223-3_TabPin2
+main,1,U5,74AHCT1G125,"Buffer, TTL-level input at 5V: 3.3V → 5V for WS2812B (VIH 0.7·VDD)",Texas Instruments,SN74AHCT1G125DBVR,Package_TO_SOT_SMD:SOT-23-5
