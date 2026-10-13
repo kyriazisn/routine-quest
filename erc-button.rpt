@@ -1,0 +1,66 @@
+ERC report (2026-10-13T15:30:49+0300, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(20.32 mm, 20.32 mm): Symbol #FLG01 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(20.32 mm, 22.86 mm): Symbol #PWR011 [+5V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(21.59 mm, 30.48 mm): Symbol #PWR001 [+5V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(21.59 mm, 38.10 mm): Symbol #PWR002 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(40.64 mm, 20.32 mm): Symbol #FLG02 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(40.64 mm, 22.86 mm): Symbol #PWR012 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'RQ'
+    ; warning
+    @(30.48 mm, 36.83 mm): Symbol J1 [Conn_ButtonBoard_6P]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(21.59 mm, 43.18 mm): Symbol #PWR003 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'RQ'
+    ; warning
+    @(50.80 mm, 27.94 mm): Symbol R1 [R]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(87.63 mm, 29.21 mm): Symbol #PWR004 [+5V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'RQ'
+    ; warning
+    @(87.63 mm, 36.83 mm): Symbol LED1 [WS2812B]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(87.63 mm, 44.45 mm): Symbol #PWR005 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(114.30 mm, 27.94 mm): Symbol #PWR006 [+5V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'RQ'
+    ; warning
+    @(121.92 mm, 27.94 mm): Symbol C1 [C]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(129.54 mm, 27.94 mm): Symbol #PWR007 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(147.32 mm, 27.94 mm): Symbol #PWR008 [+5V]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'RQ'
+    ; warning
+    @(154.94 mm, 27.94 mm): Symbol C2 [C]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(162.56 mm, 27.94 mm): Symbol #PWR009 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'power'
+    ; warning
+    @(179.07 mm, 33.02 mm): Symbol #PWR010 [GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'RQ'
+    ; warning
+    @(187.96 mm, 31.75 mm): Symbol J2 [Conn_Microswitch_2P]
+
+ ** ERC messages: 20  Errors 0  Warnings 20
