@@ -1,0 +1,47 @@
+name: hardware
+
+on:
+  pull_request:
+    paths:
+      - "hardware/**"
+      - ".github/workflows/hardware.yml"
+  push:
+    branches: [main]
+    paths:
+      - "hardware/**"
+
+permissions:
+  contents: read
+
+env:
+  # Pinned official Espressif KiCad library (ESP32-S3-WROOM-1 symbol), CC-BY-SA 4.0
+  ESP_LIB_REPO: https://github.com/espressif/kicad-libraries.git
+  ESP_LIB_SHA: dd76561812ab300351234ba6e0ec1295641796f0
+
+jobs:
+  schematic:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install "kiutils==1.4.8" "matplotlib>=3.9"
+      - name: Fetch Espressif library (pinned)
+        run: |
+          git init -q /tmp/esplib && cd /tmp/esplib
+          git fetch -q --depth 1 "$ESP_LIB_REPO" "$ESP_LIB_SHA" && git checkout -q FETCH_HEAD
+      - name: Regenerate — committed files must match the generator
+        env:
+          ESP_KICAD_LIB: /tmp/esplib/symbols/Espressif.kicad_sym
+        run: |
+          python hardware/tools/gen_schematics.py
+          git diff --exit-code -- hardware/*.kicad_sch hardware/button-board/*.kicad_sch hardware/bom hardware/build/*.json
+      - name: Independent connectivity + ERC-style checks
+        run: python hardware/tools/check_schematic.py
+      - name: Render review PDFs
+        run: python hardware/tools/render_schematic.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: schematic-review-${{ github.sha }}
+          path: hardware/build/*.pdf

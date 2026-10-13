@@ -1,0 +1,7 @@
+Board,Qty,References,Value,Description,Manufacturer,MPN,Footprint
+button (x4),1,C1,100nF,Capacitor 100nF X7R 16V 0603,,,Capacitor_SMD:C_0603_1608Metric
+button (x4),1,C2,10uF,Capacitor 10uF X5R 10V 0805,,,Capacitor_SMD:C_0805_2012Metric
+button (x4),1,J1,B6B-PH-K-S,"To main board (6-wire harness, same pinout both ends)",JST,B6B-PH-K-S(LF)(SN),Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical
+button (x4),1,J2,MICROSWITCH,"To arcade microswitch (spade harness), NO contact",JST,B2B-PH-K-S(LF)(SN),Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical
+button (x4),1,LED1,WS2812B,"Button LED, under translucent arcade button",Worldsemi,WS2812B-B/W,LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm
+button (x4),1,R1,330R,Resistor 330R 1% 0603,,,Resistor_SMD:R_0603_1608Metric

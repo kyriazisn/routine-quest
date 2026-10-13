@@ -31,3 +31,7 @@ hardware/**/*.lck
 .DS_Store
 .vscode/
 .idea/
+
+# Hardware review renders (CI artifact)
+hardware/build/*.pdf
+hardware/build/*.png
