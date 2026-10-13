@@ -5,6 +5,9 @@
 
 CONFIG_RQ_SIM_MODE=y
 
+# Wokwi's serial monitor does not render ANSI colours
+# CONFIG_LOG_COLORS is not set
+
 # Wokwi's serial monitor is wired to UART0
 CONFIG_ESP_CONSOLE_UART_DEFAULT=y
 # CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG is not set
