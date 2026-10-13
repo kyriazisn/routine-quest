@@ -2,7 +2,7 @@
 
 Design notes, calculations and the approval checklist: [`docs/06-hardware.md`](../docs/06-hardware.md).
 
-> **Status:** schematic v0.1 awaiting approval. PCB layout (Phase 6b) starts only after approval.
+> **Status:** schematic v0.1 approved (2026-10-13). PCB layout (Phase 6b) **in progress, not for ordering** — see [`docs/06b-pcb.md`](../docs/06b-pcb.md).
 
 ## Files
 

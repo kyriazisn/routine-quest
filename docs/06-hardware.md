@@ -1,6 +1,6 @@
 # 06 — Hardware: Schematic & BOM
 
-Status: **Schematic προς έγκριση.** Σύμφωνα με τον κανόνα του έργου, το **PCB layout (Φάση 6b) δεν ξεκινά** πριν εγκριθεί το schematic.
+Status: **Schematic εγκεκριμένο (2026-10-13).** Το PCB layout (Φάση 6b) είναι σε εξέλιξη: [`06b-pcb.md`](06b-pcb.md).
 
 | Αρχείο | Περιεχόμενο |
 |---|---|

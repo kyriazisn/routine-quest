@@ -1,5 +1,5 @@
 Board,Qty,References,Value,Description,Manufacturer,MPN,Footprint
-main,1,BZ1,MLT-8530,"Magnetic buzzer, external drive, 2.7kHz 80dB, 8.5mm SMD (pin1 +)",Jiangsu Huaneng,MLT-8530,RQ:Buzzer_MLT-8530 (create in Phase 6b)
+main,1,BZ1,MLT-8530,"Magnetic buzzer, external drive, 2.7kHz 80dB, 8.5mm SMD (pin1 +)",Jiangsu Huaneng,MLT-8530,RQ:Buzzer_MLT-8530
 main,1,C1,4.7nF,Capacitor 4.7nF X7R 50V 0603,,,Capacitor_SMD:C_0603_1608Metric
 main,1,C2,1nF,Capacitor 1nF X7R 25V 0603,,,Capacitor_SMD:C_0603_1608Metric
 main,2,C3 C11,1uF,Capacitor 1uF X7R 16V 0603,,,Capacitor_SMD:C_0603_1608Metric

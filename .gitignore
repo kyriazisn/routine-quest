@@ -35,3 +35,7 @@ hardware/**/*.lck
 # Hardware review renders (CI artifact)
 hardware/build/*.pdf
 hardware/build/*.png
+
+# PCB tooling outputs
+*.rpt
+hardware/logs/

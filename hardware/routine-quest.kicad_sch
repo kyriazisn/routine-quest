@@ -1767,7 +1767,7 @@
   (symbol (lib_id "RQ:Buzzer") (at 339.09 207.01 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "f0eea482-828f-5ea3-82d0-ffc2aba07e9a")
     (property "Reference" "BZ1" (at 339.09 203.835 0) (effects (font (size 1.27 1.27))))
     (property "Value" "MLT-8530" (at 339.09 210.185 0) (effects (font (size 1.27 1.27))))
-    (property "Footprint" "RQ:Buzzer_MLT-8530 (create in Phase 6b)" (at 339.09 207.01 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Footprint" "RQ:Buzzer_MLT-8530" (at 339.09 207.01 0) (effects (font (size 1.27 1.27)) hide))
     (property "Datasheet" "~" (at 339.09 207.01 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "MLT-8530" (at 339.09 207.01 0) (effects (font (size 1.27 1.27)) hide))
     (property "Manufacturer" "Jiangsu Huaneng" (at 339.09 207.01 0) (effects (font (size 1.27 1.27)) hide))
