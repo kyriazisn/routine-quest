@@ -125,7 +125,7 @@ FP = {
     "JST6": "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical",
     "JST2": "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
     "TP": "TestPoint:TestPoint_Pad_D1.5mm",
-    "BUZ": "RQ:Buzzer_MLT-8530 (create in Phase 6b)",
+    "BUZ": "RQ:Buzzer_MLT-8530",
 }
 
 

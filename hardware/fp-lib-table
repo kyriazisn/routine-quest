@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "RQ")(type "KiCad")(uri "${KIPRJMOD}/lib/RQ.pretty")(options "")(descr "Routine Quest project footprints"))
+  (lib (name "Espressif")(type "KiCad")(uri "${KIPRJMOD}/lib/Espressif.pretty")(options "")(descr "Vendored from espressif/kicad-libraries @ dd76561 (CC-BY-SA 4.0 + design exception)"))
+)
