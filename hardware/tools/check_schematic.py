@@ -58,8 +58,50 @@ def pin_world(sx: float, sy: float, rot: float, px: float, py: float) -> tuple[f
     return sx + rx, sy - ry
 
 
-def check(sch_path: str, netlist_path: str) -> list[str]:
+NEWER_THAN_V8 = ("(show_name", "(hide yes)", "(hide no)", "(embedded_fonts", "(do_not_autoplace")
+
+
+def syntax_lint(path: str) -> list[str]:
+    """
+    Problems that make KiCad 8/9 refuse to load the file but that kiutils tolerates:
+    raw newlines inside string literals and tokens from newer file-format versions.
+    """
     errors: list[str] = []
+    text = open(path, encoding="utf-8").read()
+    in_str = esc = False
+    line = 1
+    for ch in text:
+        if ch == "\n":
+            if in_str:
+                errors.append(f"line {line}: raw newline inside a string literal (use \\n)")
+            line += 1
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+        elif ch == '"':
+            in_str = True
+    if in_str:
+        errors.append("unterminated string literal")
+    depth = 0
+    for ch in text:  # quick paren balance (strings contain no parens in our output)
+        depth += (ch == "(") - (ch == ")")
+        if depth < 0:
+            break
+    if depth != 0:
+        errors.append(f"unbalanced parentheses (depth {depth} at EOF)")
+    for tok in NEWER_THAN_V8:
+        n = text.count(tok)
+        if n:
+            errors.append(f"{n}× token {tok!r} is not valid in file format 20231120 (KiCad 8)")
+    return errors
+
+
+def check(sch_path: str, netlist_path: str) -> list[str]:
+    errors: list[str] = syntax_lint(sch_path)
     sch = Schematic.from_file(sch_path)
     libs = {}
     for s in sch.libSymbols:

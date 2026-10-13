@@ -22,7 +22,8 @@ NAMESPACE = uuid.UUID("6f1b3b0e-6f4b-4c55-9c84-5e1d7a0c2a11")  # deterministic U
 
 
 def q(s: str) -> str:
-    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    """KiCad string literal. Raw newlines inside a string make KiCad reject the whole file."""
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n") + '"'
 
 
 def snap(v: float) -> float:
@@ -268,9 +269,14 @@ class Schematic:
         body: list[str] = []
         for p in self.parts:
             body.append(self._symbol_instance(p, root))
+            emitted: dict[tuple[float, float], str | None] = {}
             for pin in p.sym.pins:
                 net = p.nets[pin.number]
                 cx, cy = p.at[0] + pin.x, p.at[1] - pin.y
+                if (cx, cy) in emitted:  # stacked pins (module GND pads) connect by coincidence
+                    assert emitted[(cx, cy)] == net, f"{p.ref}: stacked pins on different nets"
+                    continue
+                emitted[(cx, cy)] = net
                 if net is None:
                     body.append(f"  (no_connect (at {fmt(cx)} {fmt(cy)}) (uuid {q(self.uid(f'nc/{p.ref}/{pin.number}'))}))")
                     continue
